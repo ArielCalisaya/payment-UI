@@ -1,0 +1,326 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body
+{
+    background: darksalmon;
+    font-family: 'Lato', sans-serif;
+}
+.container
+{
+    width: 90%;
+    max-width: 1000px;
+    padding: 40px 20px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ------------- Card Styles ----------*/
+
+.card
+{
+    width: 100%;
+    max-width: 550px;
+    position: relative;
+    color: #fff;
+    transition: 1.3s ease all;
+    transform: rotateY(0deg);
+    transform-style: preserve-3d;
+    cursor: pointer;
+    z-index: 2;
+
+}
+
+
+.card.active
+{
+    transform: rotateY(180deg);
+}
+.card > div
+{
+    padding: 30px;
+    border-radius: 15px;
+    min-height: 315px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 10px 10px 0 rgba(90, 116, 148, 0.3);
+}
+
+/* Frontal Card */
+
+.card .front
+{
+    width: 100%;
+    background: url(../img/bg-card/bg-card-2.jpg);
+    background-size: cover;
+}
+
+.front .logo
+{
+    text-align: right;
+    min-height: 50px;
+}
+
+.credits
+{
+    text-align: right;
+}
+.credits a
+{
+    color: #fff;
+    font-size: 16px;
+    z-index: 9999;
+}
+
+.front .logo img
+{
+    width: 100%;
+    object-fit: cover;
+    max-width: 80px;
+}
+.front .chip
+{
+    width: 100%;
+    height: 40px;
+    max-width: 60px;
+    margin-bottom: 20px;
+}
+
+.front .data .group .label
+{
+    font-size: 16px;
+    color: #c3c3c0;
+    margin-bottom: 5px;
+}
+.front .group .number,
+.front .group .name,
+.front .group .expiration
+{
+    color: #fff;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.front .flexbox
+{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* back Face card */
+.back
+{
+    background: url(../img/bg-card/bg-card-2.jpg);
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+}
+.back .magnetic-bar
+{
+	height: 40px;
+	background: #000;
+	width: 100%;
+	position: absolute;
+	top: 30px;
+	left: 0;
+}
+
+.back .data
+{
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+.back .data p
+{
+    margin-bottom: 5px;
+}
+
+.back .data #firm
+{
+    width: 40%;
+}
+
+.back .data #firm .firm
+{
+    height: 40px;
+    background: repeating-linear-gradient(darksalmon 0, darksalmon 5px, lightgreen 5px, lightgreen 10px);
+}
+
+.back .data #firm .firm p
+{
+    line-height: 40px;
+    font-family: 'Liu Jian Mao Cao', cursive;
+    color: #000;
+    font-size: 30px;
+    padding: 0 10px;
+    text-transform: capitalize;
+}
+
+.back .data #ccv
+{
+	width: 20%;
+}
+.back .data #ccv .ccv
+{
+	background: #fff;
+	height: 40px;
+	color: #000;
+	padding: 10px;
+	text-align: center;
+}
+
+.back .leyenda
+{
+	font-size: 14px;
+	line-height: 24px;
+}
+
+
+
+/* button */
+
+.container-btn .btn-open-form
+{
+	width: 50px;
+	height: 50px;
+	font-size: 20px;
+	line-height: 20px;
+	background: linear-gradient(#FFDA63, #FFDA63);
+	color: #000;
+	position: relative;
+	top: -25px;
+	z-index: 3;
+	border-radius: 100%;
+	box-shadow: -5px 4px 8px rgba(24,56,182,0.4);
+	padding: 5px;
+	transition: all .3s ease;
+	border: none;
+	cursor: pointer;
+}
+
+.container-btn .btn-open-form:hover
+{
+	background: linear-gradient(#FFC340, #FFC340);
+}
+
+.container-btn .btn-open-form.active
+{
+    transform: rotate(45deg)
+}
+
+/* card Form */
+
+.card-form {
+	background: #fff;
+	width: 100%;
+	max-width: 700px;
+	padding: 150px 30px 30px 30px;
+	border-radius: 10px;
+	position: relative;
+	top: -150px;
+	z-index: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+	transition: clip-path .5s ease-out;
+}
+
+.card-form.active
+{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.card-form label
+{
+    display: block;
+    color: #7d8994;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.card-form input,
+.card-form select,
+.btn-submit
+{
+    border: 2px solid #CED6E0;
+    font-size: 18px;
+    height: 50px;
+    width: 100%;
+    padding: 5px 12px;
+    transition: .3s ease all;
+    border-radius: 10px;
+}
+
+.card-form input:hover,
+.card-form select:hover {
+	border: 2px solid #93BDED;
+}
+.card-form input:focus,
+.card-form select:focus {
+	outline: rgb(4,4,4);
+	box-shadow: 1px 7px 10px -5px rgba(90,116,148,0.3);
+}
+
+.card-form input {
+	margin-bottom: 20px;
+	text-transform: uppercase;
+}
+
+.card-form .flexbox {
+	display: flex;
+	justify-content: space-between;
+}
+
+.card-form .expiration {
+	width: 100%;
+}
+
+.card-form .ccv {
+	min-width: 100px;
+}
+
+.card-form .group-select {
+	width: 100%;
+	margin-right: 15px;
+	position: relative;
+}
+
+.card-form select {
+	-webkit-appearance: none;
+}
+
+.card-form .group-select i {
+	position: absolute;
+	color: #CED6E0;
+	top: 18px;
+	right: 15px;
+	transition: .3s ease all;
+}
+
+.card-form .group-select:hover i {
+	color: #93bfed;
+}
+
+.card-form .btn-submit {
+	border: none;
+	padding: 10px;
+	font-size: 22px;
+	color: #000;
+	background: #2364d2;
+    border-radius: 50px;
+	background: linear-gradient(#FFDA63, #FFB940);
+    opacity: 0.8;
+	cursor: pointer;
+}
+
+
+.card-form .btn-submit:hover {
+	opacity: 1;
+}
